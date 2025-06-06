@@ -1,0 +1,16 @@
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.Form1.resources
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.csproj.GenerateResource.cache
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.AssemblyInfoInputs.cache
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.AssemblyInfo.cs
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.csproj.CoreCompileInputs.cache
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\bin\Debug\net8.0-windows\VideoDownloaderApp.exe
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\bin\Debug\net8.0-windows\VideoDownloaderApp.deps.json
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\bin\Debug\net8.0-windows\VideoDownloaderApp.runtimeconfig.json
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\bin\Debug\net8.0-windows\VideoDownloaderApp.dll
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\bin\Debug\net8.0-windows\VideoDownloaderApp.pdb
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.dll
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\refint\VideoDownloaderApp.dll
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.pdb
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\VideoDownloaderApp.genruntimeconfig.cache
+C:\Users\acer\Documents\VideoDownloaderApp\VideoDownloaderApp\VideoDownloaderApp\obj\Debug\net8.0-windows\ref\VideoDownloaderApp.dll
