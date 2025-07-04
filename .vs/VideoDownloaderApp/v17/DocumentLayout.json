@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DDA1D35D-4D03-49A3-9411-DC14E82E0E2E}|VideoDownloaderApp\\VideoDownloaderApp.csproj|c:\\users\\acer\\documents\\videodownloaderapp\\videodownloaderapp\\videodownloaderapp\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDA1D35D-4D03-49A3-9411-DC14E82E0E2E}|VideoDownloaderApp\\VideoDownloaderApp.csproj|solutionrelative:videodownloaderapp\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDA1D35D-4D03-49A3-9411-DC14E82E0E2E}|VideoDownloaderApp\\VideoDownloaderApp.csproj|C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\videodownloaderapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DDA1D35D-4D03-49A3-9411-DC14E82E0E2E}|VideoDownloaderApp\\VideoDownloaderApp.csproj|solutionrelative:videodownloaderapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDA1D35D-4D03-49A3-9411-DC14E82E0E2E}|VideoDownloaderApp\\VideoDownloaderApp.csproj|c:\\users\\acer\\documents\\videodownloaderapp\\videodownloaderapp\\videodownloaderapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDA1D35D-4D03-49A3-9411-DC14E82E0E2E}|VideoDownloaderApp\\VideoDownloaderApp.csproj|solutionrelative:videodownloaderapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDA1D35D-4D03-49A3-9411-DC14E82E0E2E}|VideoDownloaderApp\\VideoDownloaderApp.csproj|c:\\users\\acer\\documents\\videodownloaderapp\\videodownloaderapp\\videodownloaderapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDA1D35D-4D03-49A3-9411-DC14E82E0E2E}|VideoDownloaderApp\\VideoDownloaderApp.csproj|solutionrelative:videodownloaderapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\Form1.cs",
+              "RelativeDocumentMoniker": "VideoDownloaderApp\\Form1.cs",
+              "ToolTip": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\Form1.cs",
+              "RelativeToolTip": "VideoDownloaderApp\\Form1.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAFMAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T11:38:36.268Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\Program.cs",
+              "RelativeDocumentMoniker": "VideoDownloaderApp\\Program.cs",
+              "ToolTip": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\Program.cs",
+              "RelativeToolTip": "VideoDownloaderApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T12:20:22.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\Form1.cs",
+              "RelativeDocumentMoniker": "VideoDownloaderApp\\Form1.cs",
+              "ToolTip": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\Form1.cs [Design]",
+              "RelativeToolTip": "VideoDownloaderApp\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T11:51:16.901Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "VideoDownloaderApp\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\Form1.Designer.cs",
+              "RelativeToolTip": "VideoDownloaderApp\\Form1.Designer.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAAANUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T11:47:14.096Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
