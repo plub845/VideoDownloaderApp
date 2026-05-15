@@ -98,7 +98,7 @@ For developers who wish to modify or build the binary manually:
 
 ## 🤝 Acknowledgements / กิตติกรรมประกาศ
 
-This project relies on powerful open-source utilities. Sincere gratitude to the developers and communities behind:
+This project relies on powerful open-source utilities. Sincere gratitude to the developers and communities behind:  
 โปรเจกต์นี้ขับเคลื่อนด้วยเครื่องมือโอเพนซอร์สประสิทธิภาพสูง ขอกราบขอบพระคุณผู้พัฒนาและชุมชนผู้สร้างสรรค์เครื่องมือหลักมา ณ ที่นี้:
 
 * **[yt-dlp](https://github.com/yt-dlp/yt-dlp)** — Advanced command-line YouTube downloader.
@@ -106,14 +106,27 @@ This project relies on powerful open-source utilities. Sincere gratitude to the 
 
 ---
 
+## ⚖️ Disclaimer / ข้อปฏิเสธความรับผิดชอบ
+
+> This application is developed strictly for **educational purposes** and **personal use** only. The developer does not condone, support, or encourage any form of copyright infringement.
+> 
+> By using this software, you agree to the following terms:
+> * **No Commercial Use:** You must not use this tool to download copyrighted material for commercial profit or unauthorized distribution.
+> * **Respect Content Creators:** You are solely responsible for compliance with the terms of service of the respective platforms (e.g., YouTube) and local copyright laws.
+> * **User Liability:** The developer shall not be held liable or responsible for any misuse, copyright claims, or damages resulting from the use of this application.
+> 
+> แอปพลิเคชันนี้พัฒนาขึ้นเพื่อ **วัตถุประสงค์ทางการศึกษา** และ **การใช้งานส่วนบุคคล** เท่านั้น ผู้พัฒนาไม่สนับสนุนการละเมิดลิขสิทธิ์ทุกรูปแบบ ผู้ใช้งานต้องเป็นผู้รับผิดชอบต่อกฎหมายลิขสิทธิ์และเงื่อนไขของแพลตฟอร์มต้นทางด้วยตนเอง หากเกิดการนำไปใช้ในทางที่ผิดกฎหมาย ทางผู้พัฒนาจะไม่รับผิดชอบใด ๆ ทั้งสิ้น
+
+---
+
 ## 📜 License / สัญญาอนุญาต
 
 This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**:
 
-> 🟩 **Permissions / สิทธิ์ในการใช้งาน**
-> Commercial use, modification, and distribution are permitted.
+> 🟩 **Permissions / สิทธิ์ในการใช้งาน**  
+> Commercial use, modification, and distribution are permitted.  
 > อนุญาตให้ผู้ที่สนใจนำซอร์สโค้ดนี้ไปใช้งาน ดัดแปลง แก้ไข หรือนำไปใช้ประโยชน์ในเชิงพาณิชย์เพื่อสร้างรายได้ได้อย่างถูกต้องตามกฎหมาย
 
-> 🟧 **Conditions / เงื่อนไขผูกพัน (Copyleft)**
-> Any derivative works distributed at scale **must disclose their source code** under the same GPL-3.0 license, and include proper attribution to the original author.
-> หากมีการนำซอร์สโค้ดนี้ไปดัดแปลง แก้ไข หรือแจกจ่ายต่อในวงกว้าง ผู้ดำเนินการจำเป็นต้องทำการเปิดเผยซอร์สโค้ด (Disclose Source) ภายใต้สัญญาอนุญาตฉบับเดิม และต้องคงไว้ซึ่งประกาศสิทธิ์และเครดิตของผู้พัฒนาต้นฉบับ ห้ามลบออกโดยเด็ดขาด
+> 🟧 **Conditions / เงื่อนไขผูกพัน (Copyleft)**  
+> Any derivative works distributed at scale **must disclose their source code** under the same GPL-3.0 license, and include proper attribution to the original author.  
+> หากมีการนำซอร์สโค้ดนี้ไปดัดแปลง แก้ไข หรือแจกจ่ายต่อในวงกว้าง ผู้ดำเนินการจำเป็นต้องทำการเปิดเผยซอร์สโค้ด (Disclose Source) ภายใต้สัญญาอนุญาตฉับเดิม และต้องคงไว้ซึ่งประกาศสิทธิ์และเครดิตของผู้พัฒนาต้นฉบับ ห้ามลบออกโดยเด็ดขาด
