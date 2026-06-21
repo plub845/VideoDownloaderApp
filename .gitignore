@@ -16,3 +16,15 @@ VideoDownloaderApp.Linux/*.snap
 VideoDownloaderApp.Linux/packaging/root/
 VideoDownloaderApp.Linux/packaging/root/usr/bin/
 VideoDownloaderApp.Linux/packaging/root/opt/
+
+# Linux package/build outputs
+VideoDownloaderApp.Linux/packaging/publish/
+VideoDownloaderApp.Linux/packaging/dist/
+VideoDownloaderApp.Linux/bin/
+VideoDownloaderApp.Linux/obj/
+VideoDownloaderApp.Linux/.craft/
+VideoDownloaderApp.Linux/parts/
+VideoDownloaderApp.Linux/prime/
+VideoDownloaderApp.Linux/stage/
+VideoDownloaderApp.Linux/*.snap
+install.sh
