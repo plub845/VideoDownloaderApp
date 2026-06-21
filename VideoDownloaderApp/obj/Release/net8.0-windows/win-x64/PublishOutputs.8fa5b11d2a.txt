@@ -1,0 +1,6 @@
+C:\Users\Admin\Downloads\VideoDownloaderApp\VideoDownloaderApp\main\VideoDownloaderApp.exe
+C:\Users\Admin\Downloads\VideoDownloaderApp\VideoDownloaderApp\main\VDapp.icon.ico
+C:\Users\Admin\Downloads\VideoDownloaderApp\VideoDownloaderApp\main\VideoDownloaderApp.dll
+C:\Users\Admin\Downloads\VideoDownloaderApp\VideoDownloaderApp\main\VideoDownloaderApp.deps.json
+C:\Users\Admin\Downloads\VideoDownloaderApp\VideoDownloaderApp\main\VideoDownloaderApp.runtimeconfig.json
+C:\Users\Admin\Downloads\VideoDownloaderApp\VideoDownloaderApp\main\VideoDownloaderApp.pdb

@@ -10,7 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="VDapp.icon.ico" />
+    <Content Include="VDapp.icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

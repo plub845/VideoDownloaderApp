@@ -1,33 +1,32 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {}
+    "net8.0-windows7.0": {},
+    "net8.0-windows7.0/win-x64": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\acer\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Downloads\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp.csproj",
       "projectName": "VideoDownloaderApp",
-      "projectPath": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp.csproj",
-      "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\acer\\Documents\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Downloads\\VideoDownloaderApp\\VideoDownloaderApp\\VideoDownloaderApp.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Downloads\\VideoDownloaderApp\\VideoDownloaderApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -45,8 +44,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -70,7 +68,12 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.422/PortableRuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "win-x64": {
+        "#import": []
       }
     }
   }
