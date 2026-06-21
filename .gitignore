@@ -1,1 +1,18 @@
 Output/ 
+
+# Local installer script, release asset only
+install.sh
+
+# Linux Avalonia build output
+VideoDownloaderApp.Linux/bin/
+VideoDownloaderApp.Linux/obj/
+
+# Snapcraft / Linux packaging output
+VideoDownloaderApp.Linux/.craft/
+VideoDownloaderApp.Linux/parts/
+VideoDownloaderApp.Linux/prime/
+VideoDownloaderApp.Linux/stage/
+VideoDownloaderApp.Linux/*.snap
+VideoDownloaderApp.Linux/packaging/root/
+VideoDownloaderApp.Linux/packaging/root/usr/bin/
+VideoDownloaderApp.Linux/packaging/root/opt/

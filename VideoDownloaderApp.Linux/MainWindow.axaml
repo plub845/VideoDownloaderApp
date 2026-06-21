@@ -1,0 +1,73 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="VideoDownloaderApp.Linux.MainWindow"
+        mc:Ignorable="d"
+        d:DesignWidth="900" d:DesignHeight="680"
+        Title="Video Downloader Pro v1.0.2 - Linux"
+        Width="900" Height="680" MinWidth="900" MinHeight="680"
+        CanResize="False" WindowStartupLocation="CenterScreen" Background="#141419"
+        Icon="/Assets/VDapp.icon.ico">
+    <Grid RowDefinitions="116,*">
+        <Border Grid.Row="0" Background="#20222A" BorderBrush="#386ECC" BorderThickness="0,0,0,2">
+            <Grid Margin="24,16" ColumnDefinitions="Auto,*">
+                <Image Width="76" Height="76" Source="/Assets/VDapp.icon.ico"
+                       Stretch="Uniform" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="1" Margin="20,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="VIDEO DOWNLOADER PRO" FontSize="25" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="ดาวน์โหลดวิดีโอและเสียงด้วย yt-dlp + ffmpeg" Margin="0,7,0,0"
+                               FontSize="14" Foreground="#AEB5C4"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1" Margin="20" ColumnDefinitions="420,20,*">
+            <ScrollViewer Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock Text="🎵 Video URL:" Classes="fieldLabel"/>
+                    <TextBox x:Name="UrlTextBox" Height="36" PlaceholderText="https://..." Classes="input"/>
+                    <TextBlock Text="Output format" Margin="0,16,0,7" Classes="fieldLabel"/>
+                    <Border Padding="15,10" BorderBrush="#50535F" BorderThickness="1" CornerRadius="4">
+                        <StackPanel>
+                            <TextBlock Text="File format" Margin="0,0,0,8" Foreground="#FFA500"/>
+                            <StackPanel Orientation="Horizontal" Spacing="28">
+                                <RadioButton x:Name="Mp4RadioButton" GroupName="OutputFormat" IsChecked="True" Content="MP4 (video)"/>
+                                <RadioButton x:Name="Mp3RadioButton" GroupName="OutputFormat" Content="MP3 (audio only)"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <TextBlock Text="Destination folder" Margin="0,16,0,7" Classes="fieldLabel"/>
+                    <Grid ColumnDefinitions="*,105">
+                        <TextBox x:Name="OutputPathTextBox" Height="36" Classes="input"/>
+                        <Button x:Name="BrowseButton" Grid.Column="1" Margin="10,0,0,0" Content="📁 Browse"
+                                Classes="secondary" Click="BrowseButton_Click"/>
+                    </Grid>
+                    <TextBlock Text="Additional commands for advanced users (yt-dlp)"
+                               Margin="0,16,0,7" Foreground="#73A9E6"/>
+                    <TextBox x:Name="CustomOptionsTextBox" Height="36" PlaceholderText="เช่น --no-playlist"
+                             Foreground="#FF7272" Classes="input"/>
+                    <ProgressBar x:Name="DownloadProgressBar" Margin="0,20,0,0" Height="20"
+                                 Minimum="0" Maximum="100" Value="0" ShowProgressText="True"/>
+                    <Grid Margin="0,14,0,0" ColumnDefinitions="*,110">
+                        <Button x:Name="DownloadButton" Height="54" Content="⬇  DOWNLOAD NOW"
+                                FontSize="17" FontWeight="Bold" Classes="download" Click="DownloadButton_Click"/>
+                        <Button x:Name="StopButton" Grid.Column="1" Margin="10,0,0,0" Height="54"
+                                Content="■ STOP" FontWeight="Bold" IsEnabled="False" Classes="stop" Click="StopButton_Click"/>
+                    </Grid>
+                    <TextBlock x:Name="StatusTextBlock" Margin="0,12,0,0" Text="พร้อมใช้งาน"
+                               Foreground="#70E094" TextWrapping="Wrap"/>
+                </StackPanel>
+            </ScrollViewer>
+            <Border Grid.Column="2" Background="#0F0F14" BorderBrush="#30333D" BorderThickness="1"
+                    CornerRadius="4" Padding="12">
+                <Grid RowDefinitions="Auto,*">
+                    <TextBlock Text="LOG / STATUS" Margin="0,0,0,10" FontSize="14" FontWeight="Bold" Foreground="#70E094"/>
+                    <TextBox x:Name="LogTextBox" Grid.Row="1" IsReadOnly="True" AcceptsReturn="True"
+                             TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             Background="#0F0F14" Foreground="#61E786" BorderThickness="0"
+                             FontFamily="Monospace" FontSize="12"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

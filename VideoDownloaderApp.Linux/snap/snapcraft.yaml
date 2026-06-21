@@ -1,0 +1,46 @@
+name: video-downloader-pro-plub845
+base: core24
+version: '1.0.3'
+summary: Download public video and audio as MP4 or MP3
+description: |
+  Video Downloader Pro is a graphical downloader powered by yt-dlp and
+  FFmpeg. It supports MP4 video, MP3 audio, custom yt-dlp options,
+  download progress, and cancellation.
+title: Video Downloader Pro
+website: https://github.com/plub845/VideoDownloaderApp
+contact: https://github.com/plub845/VideoDownloaderApp/issues
+source-code: https://github.com/plub845/VideoDownloaderApp
+issues: https://github.com/plub845/VideoDownloaderApp/issues
+license: GPL-3.0-or-later
+icon: snap/gui/icon.png
+grade: stable
+confinement: strict
+
+apps:
+  video-downloader-pro:
+    command: bin/launcher
+    desktop: meta/gui/video-downloader-pro.desktop
+    plugs:
+      - desktop
+      - desktop-legacy
+      - home
+      - network
+      - opengl
+      - removable-media
+      - wayland
+      - x11
+
+parts:
+  application:
+    plugin: dump
+    source: packaging/publish
+    organize:
+      '*': app/
+    stage-packages:
+      - ffmpeg
+      - yt-dlp
+  integration:
+    plugin: dump
+    source: snap/local
+    organize:
+      launcher: bin/launcher
