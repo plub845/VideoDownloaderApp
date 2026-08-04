@@ -6,7 +6,7 @@ A Windows-based application designed for downloading high-quality videos and aud
 
 <p align="left">
   <img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge" alt="GPLv3 License">
-  <img src="https://img.shields.io/badge/Platform-Windows-0078D6.svg?style=for-the-badge&logo=windows" alt="Windows">
+  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-0078D6.svg?style=for-the-badge&logo=windows" alt="Windows & Linux">
   <img src="https://img.shields.io/badge/Language-C%23-239120.svg?style=for-the-badge&logo=c-sharp" alt="C#">
   <img src="https://img.shields.io/badge/Status-Active-brightgreen.svg?style=for-the-badge" alt="Status Active">
 </p>
@@ -15,7 +15,7 @@ A Windows-based application designed for downloading high-quality videos and aud
 
 ## ⚡ Quick Install / ติดตั้งแบบรวดเร็ว
 
-### วิธีแนะนำ: ติดตั้งผ่าน PowerShell
+### 🪟 วิธีแนะนำ: ติดตั้งผ่าน PowerShell (Windows)
 
 เปิด **PowerShell** หรือ **Windows Terminal** แล้วคัดลอกคำสั่งนี้ไปรันได้เลย:
 
@@ -25,8 +25,7 @@ irm "https://raw.githubusercontent.com/plub845/VideoDownloaderApp/main/VideoDown
 
 สคริปต์นี้จะทำหน้าที่เป็นตัวช่วยดาวน์โหลดและเปิดตัวติดตั้งหลักจาก GitHub Release โดยอัตโนมัติ
 
-### วิธีเปิด PowerShell
-
+**วิธีเปิด PowerShell**
 1. กดปุ่ม **Start**
 2. พิมพ์คำว่า **PowerShell**
 3. คลิกขวาแล้วเลือก **Run as administrator**
@@ -34,6 +33,30 @@ irm "https://raw.githubusercontent.com/plub845/VideoDownloaderApp/main/VideoDown
 5. กด **Enter**
 
 > หมายเหตุ: หาก Windows หรือ SmartScreen แสดงคำเตือน ให้ตรวจสอบว่าดาวน์โหลดจาก repository นี้เท่านั้น และกดยืนยันเฉพาะเมื่อเชื่อถือแหล่งที่มา
+
+### 🐧 วิธีติดตั้งบน Linux
+
+เปิด **Terminal** แล้วคัดลอกคำสั่งนี้ไปรัน:
+
+```bash
+wget -O install.sh "https://github.com/plub845/VideoDownloaderApp/releases/download/v1.1.0/install.sh" && chmod +x install.sh && ./install.sh
+```
+
+---
+
+## ⚙️ การติดตั้ง .NET SDK แบบแมนนวล (สำหรับผู้ที่ต้องการติดตั้งเอง)
+
+หากตัวติดตั้งทำงานผิดพลาด หรือต้องการติดตั้งไฟล์ที่จำเป็นด้วยตนเอง คุณสามารถดาวน์โหลด `.NET SDK` ได้โดยตรงจากหน้า Release:
+
+1. ไปที่หน้า Release v1.1.0:
+```txt
+https://github.com/plub845/VideoDownloaderApp/releases/tag/v1.1.0
+```
+2. ดาวน์โหลดไฟล์ `dotnet-sdk-8.0.422-win-x64.exe`
+3. ดับเบิลคลิกเพื่อติดตั้งตามขั้นตอนปกติจนเสร็จสิ้น
+4. หลังจากนั้นจึงเปิดตัวติดตั้งแอปพลิเคชัน VideoDownloaderApp
+
+---
 
 ### ดาวน์โหลดไฟล์สคริปต์โดยตรง
 
