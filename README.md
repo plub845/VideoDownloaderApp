@@ -15,7 +15,7 @@ A Windows-based application designed for downloading high-quality videos and aud
 
 ## Quick Install / ติดตั้งแบบรวดเร็ว
 
-### สำหรับ Windows 10 และ 11 (วิธีแนะนำ: ติดตั้งผ่าน Winget)
+### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg" width="18" height="18" valign="middle" /> สำหรับ Windows 10 และ 11 (วิธีแนะนำ: ติดตั้งผ่าน Winget)
 
 หากคุณใช้งาน Windows 10 หรือ 11 สามารถติดตั้งผ่าน Windows Package Manager (Winget) ได้อย่างง่ายดาย โดยเปิด **Command Prompt** หรือ **PowerShell** แล้วคัดลอกคำสั่งนี้ไปรัน:
 
@@ -23,12 +23,12 @@ A Windows-based application designed for downloading high-quality videos and aud
 winget install -e --id plub845.VideoDownloaderApp
 ```
 
-### 🪟 ทางเลือกเพิ่มเติมสำหรับ Windows (ติดตั้งผ่าน PowerShell)
+### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg" width="18" height="18" valign="middle" /> ทางเลือกเพิ่มเติมสำหรับ Windows (ติดตั้งผ่าน PowerShell)
 
 หากไม่สามารถใช้งาน Winget ได้ คุณสามารถใช้สคริปต์อัตโนมัติแทนได้ โดยเปิด **PowerShell** ด้วยสิทธิ์ผู้ดูแลระบบ (Run as administrator) แล้วคัดลอกคำสั่งนี้ไปรัน:
 
 ```powershell
-irm "https://raw.githubusercontent.com/plub845/VideoDownloaderApp/main/VideoDownloaderApp/main/install.ps1" -OutFile "$env:TEMP\VideoDownloaderApp-install.ps1"; powershell -ExecutionPolicy Bypass -File "$env:TEMP\VideoDownloaderApp-install.ps1"
+irm "https://github.com/plub845/VideoDownloaderApp/releases/latest/download/install.ps1" -OutFile "$env:TEMP\VideoDownloaderApp-install.ps1"; powershell -ExecutionPolicy Bypass -File "$env:TEMP\VideoDownloaderApp-install.ps1"
 ```
 
 > **หมายเหตุ:** หาก Windows หรือ SmartScreen แสดงคำเตือน ให้ตรวจสอบว่าดาวน์โหลดจาก Repository นี้เท่านั้น และกดยืนยันเฉพาะเมื่อเชื่อถือแหล่งที่มา
@@ -38,7 +38,7 @@ irm "https://raw.githubusercontent.com/plub845/VideoDownloaderApp/main/VideoDown
 สำหรับผู้ใช้งาน Linux สามารถติดตั้งโดยใช้สคริปต์นี้ เปิด **Terminal** แล้วคัดลอกคำสั่งนี้ไปรันได้เลยครับ:
 
 ```bash
-wget -O install.sh "https://github.com/plub845/VideoDownloaderApp/releases/download/v1.1.0/install.sh" && chmod +x install.sh && ./install.sh
+wget -O install.sh "https://github.com/plub845/VideoDownloaderApp/releases/latest/download/install.sh" && chmod +x install.sh && ./install.sh
 ```
 
 ---
@@ -58,8 +58,8 @@ wget -O install.sh "https://github.com/plub845/VideoDownloaderApp/releases/downl
 
 | รายการ | ลิงก์ |
 | :--- | :--- |
-| ซอร์สโค้ดของไฟล์ `install.ps1` (ดูบน GitHub) | [เปิดดูซอร์สโค้ด](https://github.com/plub845/VideoDownloaderApp/blob/main/VideoDownloaderApp/main/install.ps1) |
-| ไฟล์สคริปต์แบบ Raw | [ดาวน์โหลด install.ps1](https://raw.githubusercontent.com/plub845/VideoDownloaderApp/main/VideoDownloaderApp/main/install.ps1) |
+| ดาวน์โหลดไฟล์ `install.ps1` จาก Release ล่าสุด | [ดาวน์โหลด install.ps1](https://github.com/plub845/VideoDownloaderApp/releases/latest/download/install.ps1) |
+| ดาวน์โหลดไฟล์ `install.sh` จาก Release ล่าสุด | [ดาวน์โหลด install.sh](https://github.com/plub845/VideoDownloaderApp/releases/latest/download/install.sh) |
 | ตัวติดตั้งแบบ EXE (Manual Download) | [หน้า Releases ทั้งหมด](https://github.com/plub845/VideoDownloaderApp/releases) |
 
 ---
