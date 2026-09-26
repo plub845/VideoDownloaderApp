@@ -1,0 +1,6 @@
+#!/bin/sh
+export PATH="$SNAP/app/usr/bin:$SNAP/bin:$PATH"
+export LD_LIBRARY_PATH="$SNAP/app:$SNAP/app/usr/lib/x86_64-linux-gnu:$SNAP/app/lib/x86_64-linux-gnu${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export PYTHONPATH="$SNAP/app/usr/lib/python3/dist-packages${PYTHONPATH:+:$PYTHONPATH}"
+export FONTCONFIG_PATH="$SNAP/app/etc/fonts"
+exec "$SNAP/app/VideoDownloaderApp.Linux" "$@"

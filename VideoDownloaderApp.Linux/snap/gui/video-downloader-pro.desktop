@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Video Downloader Pro
+Name[th]=วิดีโอดาวน์โหลดโปร
+Comment=Download video or audio as MP4 and MP3
+Comment[th]=ดาวน์โหลดวิดีโอหรือเสียงเป็น MP4 และ MP3
+Exec=video-downloader-pro
+Icon=video-downloader-pro-plub845
+Terminal=false
+Categories=AudioVideo;
+Keywords=video;audio;download;youtube;yt-dlp;mp4;mp3;
+StartupNotify=true

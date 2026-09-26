@@ -1,0 +1,105 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="VideoDownloaderApp.Linux.MainWindow"
+        mc:Ignorable="d"
+        d:DesignWidth="960" d:DesignHeight="700"
+        Title="Video Downloader Pro - Linux"
+        Width="960" Height="700" MinWidth="960" MinHeight="700"
+        CanResize="False" WindowStartupLocation="CenterScreen" Background="#19181E"
+        Icon="/Assets/VDapp.icon.ico">
+    <Grid RowDefinitions="110,*,Auto">
+        <!-- Header Banner -->
+        <Border Grid.Row="0" Background="#23212A" BorderBrush="#353342" BorderThickness="0,0,0,1">
+            <Grid Margin="24,14" ColumnDefinitions="Auto,*,Auto">
+                <Image Width="68" Height="68" Source="/Assets/VDapp.icon.ico"
+                       Stretch="Uniform" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="1" Margin="18,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="VIDEO DOWNLOADER PRO" FontSize="22" FontWeight="Bold" Foreground="#F5F3F8"/>
+                    <TextBlock Text="โปรแกรมดาวน์โหลดวิดีโอและเสียง ขับเคลื่อนด้วย yt-dlp และ ffmpeg" Margin="0,5,0,0"
+                               FontSize="13" Foreground="#ABA7B8"/>
+                </StackPanel>
+                <!-- Status badge ด้านขวา (อัปเดตอัตโนมัติ) -->
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBlock x:Name="HeaderUpdateBadge" Text="" FontSize="12"
+                               Foreground="#E28A67" FontWeight="SemiBold" Cursor="Hand"
+                               PointerPressed="HeaderUpdateBadge_PointerPressed"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="22,16,22,12" ColumnDefinitions="440,20,*">
+            <!-- Left: Controls -->
+            <ScrollViewer Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="0">
+                    <TextBlock Text="URL วิดีโอ (Video URL):" Classes="fieldLabel"/>
+                    <TextBox x:Name="UrlTextBox" Height="38" PlaceholderText="https://..." Classes="input"/>
+
+                    <TextBlock Text="รูปแบบไฟล์ที่ต้องการ (Format):" Margin="0,14,0,6" Classes="fieldLabel"/>
+                    <Border Padding="16,12" Background="#23212A" BorderBrush="#363442" BorderThickness="1" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="ตัวเลือกไฟล์" Margin="0,0,0,8" FontSize="11" Foreground="#ABA7B8" FontWeight="SemiBold"/>
+                            <StackPanel Orientation="Horizontal" Spacing="28">
+                                <RadioButton x:Name="Mp4RadioButton" GroupName="OutputFormat" IsChecked="True" Content="MP4 (วิดีโอพร้อมเสียง)" Foreground="#F0EEF5"/>
+                                <RadioButton x:Name="Mp3RadioButton" GroupName="OutputFormat" Content="MP3 (เสียงเท่านั้น)" Foreground="#F0EEF5"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <TextBlock Text="โฟลเดอร์ปลายทาง (Destination):" Margin="0,14,0,6" Classes="fieldLabel"/>
+                    <Grid ColumnDefinitions="*,100">
+                        <TextBox x:Name="OutputPathTextBox" Height="38" Classes="input"/>
+                        <Button x:Name="BrowseButton" Grid.Column="1" Margin="8,0,0,0" Height="38" Content="Browse"
+                                Classes="secondary" Click="BrowseButton_Click"/>
+                    </Grid>
+
+                    <TextBlock Text="คำสั่งเสริม yt-dlp (เช่น --no-playlist):"
+                               Margin="0,14,0,6" Foreground="#ABA7B8" FontSize="12"/>
+                    <TextBox x:Name="CustomOptionsTextBox" Height="38" PlaceholderText="คำสั่ง yt-dlp เพิ่มเติม"
+                             Classes="input"/>
+
+                    <ProgressBar x:Name="DownloadProgressBar" Margin="0,18,0,0" Height="14"
+                                 CornerRadius="7" Foreground="#D97757" Background="#2B2934"
+                                 Minimum="0" Maximum="100" Value="0" ShowProgressText="False"/>
+
+                    <!-- Download + Stop buttons -->
+                    <Grid Margin="0,14,0,0" ColumnDefinitions="*,105">
+                        <Button x:Name="DownloadButton" Height="50" Content="DOWNLOAD NOW"
+                                Classes="download" Click="DownloadButton_Click"/>
+                        <Button x:Name="StopButton" Grid.Column="1" Margin="8,0,0,0" Height="50"
+                                Content="STOP" IsEnabled="False" Classes="stop" Click="StopButton_Click"/>
+                    </Grid>
+
+                    <!-- Status with wrapping -->
+                    <TextBlock x:Name="StatusTextBlock" Margin="0,12,0,0" Text="พร้อมใช้งาน"
+                               Foreground="#8E8A9C" TextWrapping="Wrap" MaxWidth="420" FontSize="12"/>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Right: Log -->
+            <Border Grid.Column="2" Background="#16151B" BorderBrush="#302E3C" BorderThickness="1"
+                    CornerRadius="12" Padding="14">
+                <Grid RowDefinitions="Auto,*">
+                    <TextBlock Text="LOG / STATUS" Margin="0,0,0,10" FontSize="12" FontWeight="Bold" Foreground="#8E8A9C"/>
+                    <TextBox x:Name="LogTextBox" Grid.Row="1" IsReadOnly="True" AcceptsReturn="True"
+                             TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             Background="#16151B" Foreground="#98C4A5" BorderThickness="0"
+                             FontFamily="Monospace" FontSize="12"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Bottom status bar -->
+        <Border Grid.Row="2" Background="#1E1D25" Padding="20,8" BorderBrush="#2C2A36" BorderThickness="0,1,0,0">
+            <Grid ColumnDefinitions="*,Auto">
+                <TextBlock x:Name="VersionLabel" Text="Version 1.1.0"
+                           FontSize="11" Foreground="#848092" VerticalAlignment="Center"/>
+                <TextBlock x:Name="UpdateBadge" Grid.Column="1" Text=""
+                           FontSize="11" Foreground="#E28A67" VerticalAlignment="Center"
+                           Cursor="Hand" PointerPressed="HeaderUpdateBadge_PointerPressed"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
