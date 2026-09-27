@@ -62,3 +62,6 @@ VideoDownloaderApp.Linux/stage/
 VideoDownloaderApp.Linux/packaging/root/
 VideoDownloaderApp.Linux/packaging/dist/
 VideoDownloaderApp.Linux/packaging/publish/
+
+# Winget manifests
+manifests/
