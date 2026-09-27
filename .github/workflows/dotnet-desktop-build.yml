@@ -39,7 +39,9 @@ jobs:
 
     # Sign with SignPath Foundation
     - name: Submit to SignPath for Code Signing
-      if: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+      env:
+        SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
+      if: env.SIGNPATH_API_TOKEN != ''
       uses: signpath/github-action-submit-signing-request@v1
       with:
         api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
@@ -50,8 +52,6 @@ jobs:
         wait-for-completion: true
         output-artifact-directory: './signed'
         input-files-path: './output/windows'
-      env:
-        SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
 
     # ถ้าเซ็นสำเร็จจะอัปโหลดโฟลเดอร์ ./signed ถ้ายังไม่ได้ตั้งค่า Secret จะ fallback ใช้ ./output/windows
     - name: Upload Windows Build Artifact
