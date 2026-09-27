@@ -1,0 +1,176 @@
+name: Build & Package Desktop Apps
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  # ==============================================================================
+  # Job 1: Build Windows Application (VideoDownloaderApp)
+  # ==============================================================================
+  build-windows:
+    name: Build Windows App
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET 8 SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore Dependencies
+      run: dotnet restore VideoDownloaderApp/VideoDownloaderApp.csproj
+
+    - name: Build & Publish Windows App (Release x64)
+      run: >
+        dotnet publish VideoDownloaderApp/VideoDownloaderApp.csproj
+        -c Release
+        -r win-x64
+        --self-contained false
+        -o ./output/windows
+
+    # Sign with SignPath Foundation
+    - name: Submit to SignPath for Code Signing
+      if: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+      uses: signpath/github-action-submit-signing-request@v1
+      with:
+        api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+        organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+        project-slug: 'videodownloaderapp'
+        signing-policy-slug: 'release-signing'
+        artifact-configuration-slug: 'initial-configuration'
+        wait-for-completion: true
+        output-artifact-directory: './signed'
+        input-files-path: './output/windows'
+      env:
+        SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
+
+    # ถ้าเซ็นสำเร็จจะอัปโหลดโฟลเดอร์ ./signed ถ้ายังไม่ได้ตั้งค่า Secret จะ fallback ใช้ ./output/windows
+    - name: Upload Windows Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: VideoDownloaderApp-Windows-x64
+        path: |
+          ${{ hashFiles('./signed/**') != '' && './signed' || './output/windows' }}
+
+  # ==============================================================================
+  # Job 2: Build Linux Application & Debian Package (.deb)
+  # ==============================================================================
+  build-linux:
+    name: Build Linux App & .deb Package
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET 8 SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Install Build Tools
+      run: sudo apt-get update && sudo apt-get install -y dpkg-dev ffmpeg
+
+    - name: Restore Dependencies
+      run: dotnet restore VideoDownloaderApp.Linux/VideoDownloaderApp.Linux.csproj
+
+    - name: Publish Linux App (Self-contained x64)
+      run: >
+        dotnet publish VideoDownloaderApp.Linux/VideoDownloaderApp.Linux.csproj
+        -c Release
+        -r linux-x64
+        --self-contained true
+        -o ./publish/linux
+
+    - name: Assemble Debian Package Structure
+      run: |
+        APP_ID="io.github.plub845.VideoDownloaderApp"
+        PKG_DIR="deb_package"
+        VERSION="1.1.0"
+        ARCH="amd64"
+
+        mkdir -p "$PKG_DIR/DEBIAN"
+        mkdir -p "$PKG_DIR/opt/$APP_ID/app"
+        mkdir -p "$PKG_DIR/opt/$APP_ID/tools"
+        mkdir -p "$PKG_DIR/usr/bin"
+        mkdir -p "$PKG_DIR/usr/share/applications"
+        mkdir -p "$PKG_DIR/usr/share/icons/hicolor/256x256/apps"
+
+        # Copy compiled files
+        cp -r ./publish/linux/* "$PKG_DIR/opt/$APP_ID/app/"
+        chmod +x "$PKG_DIR/opt/$APP_ID/app/VideoDownloaderApp.Linux"
+
+        # Copy icon
+        ffmpeg -y -i VideoDownloaderApp.Linux/Assets/VDapp.icon.ico -frames:v 1 "$PKG_DIR/usr/share/icons/hicolor/256x256/apps/$APP_ID.png"
+
+        # Create launchers
+        cat << 'EOF' > "$PKG_DIR/usr/bin/$APP_ID"
+        #!/usr/bin/env bash
+        export PATH="/opt/io.github.plub845.VideoDownloaderApp/tools:$PATH"
+        exec /opt/io.github.plub845.VideoDownloaderApp/app/VideoDownloaderApp.Linux "$@"
+        EOF
+        chmod 755 "$PKG_DIR/usr/bin/$APP_ID"
+        ln -sf "$APP_ID" "$PKG_DIR/usr/bin/video-downloader"
+
+        # Create yt-dlp wrapper
+        cat << 'EOF' > "$PKG_DIR/opt/$APP_ID/tools/yt-dlp"
+        #!/usr/bin/env bash
+        export PYTHONPATH="/opt/io.github.plub845.VideoDownloaderApp/tools${PYTHONPATH:+:$PYTHONPATH}"
+        if command -v yt-dlp >/dev/null 2>&1; then
+            exec yt-dlp "$@"
+        elif python3 -m yt_dlp --version >/dev/null 2>&1; then
+            exec /usr/bin/python3 -m yt_dlp "$@"
+        else
+            exec /usr/bin/python3 -m yt_dlp "$@"
+        fi
+        EOF
+        chmod 755 "$PKG_DIR/opt/$APP_ID/tools/yt-dlp"
+
+        # Desktop entry
+        cat << EOF > "$PKG_DIR/usr/share/applications/$APP_ID.desktop"
+        [Desktop Entry]
+        Type=Application
+        Version=1.0
+        Name=Video Downloader Pro
+        Name[th]=วิดีโอดาวน์โหลดโปร
+        Comment=Download video or audio as MP4 and MP3
+        Exec=$APP_ID
+        TryExec=/usr/bin/$APP_ID
+        Icon=$APP_ID
+        Terminal=false
+        Categories=AudioVideo;
+        StartupNotify=true
+        EOF
+
+        # Control file
+        cat << EOF > "$PKG_DIR/DEBIAN/control"
+        Package: video-downloader-pro
+        Version: $VERSION
+        Section: video
+        Priority: optional
+        Architecture: $ARCH
+        Depends: ffmpeg, python3
+        Maintainer: plub845
+        Homepage: https://github.com/plub845/VideoDownloaderApp
+        Description: Graphical video and audio downloader powered by yt-dlp and FFmpeg.
+        EOF
+
+        # Build deb
+        dpkg-deb --build --root-owner-group "$PKG_DIR" "video-downloader-pro_${VERSION}_${ARCH}.deb"
+
+    - name: Upload Linux .deb Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: VideoDownloaderApp-Linux-deb
+        path: "*.deb"
