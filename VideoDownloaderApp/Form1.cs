@@ -468,10 +468,34 @@ namespace VideoDownloaderApp
             var process = new Process();
             process.StartInfo.FileName = ytDlpPath;
             process.StartInfo.Arguments = arguments;
+            process.StartInfo.WorkingDirectory = EngineDir;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
             process.StartInfo.CreateNoWindow = true;
+
+            // ป้องกันปัญหา Python WinError 448 (The path cannot be traversed because it contains an untrusted mount point)
+            // โดยการตัดโฟลเดอร์ประเภท .dotnet/tools ออกจาก PATH ของ child process ก่อนรัน
+            try
+            {
+                string? envPath = Environment.GetEnvironmentVariable("PATH");
+                if (!string.IsNullOrEmpty(envPath))
+                {
+                    var cleanSegments = new List<string>();
+                    foreach (var seg in envPath.Split(';', StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        if (seg.IndexOf(".dotnet", StringComparison.OrdinalIgnoreCase) >= 0)
+                            continue;
+                        cleanSegments.Add(seg);
+                    }
+                    if (!cleanSegments.Contains(EngineDir))
+                    {
+                        cleanSegments.Insert(0, EngineDir);
+                    }
+                    process.StartInfo.EnvironmentVariables["PATH"] = string.Join(";", cleanSegments);
+                }
+            }
+            catch { }
 
             process.OutputDataReceived += (sender, e) =>
             {

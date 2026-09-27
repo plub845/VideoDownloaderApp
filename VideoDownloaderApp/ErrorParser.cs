@@ -152,6 +152,14 @@ namespace VideoDownloaderApp
                  "ลองเลือกโฟลเดอร์อื่น เช่น Desktop หรือ Downloads หรือเปิดโปรแกรมด้วยสิทธิ์ Administrator",
                  ErrorSeverity.Error)),
 
+            // WinError 448 (Untrusted Mount Point)
+            (new Regex(@"WinError\s+448|untrusted mount point", RegexOptions.IgnoreCase),
+             m => new ParsedError(
+                 "ข้อจำกัดความปลอดภัยของ Windows (WinError 448)",
+                 "ตรวจพบโฟลเดอร์ที่ไม่ปลอดภัยหรือเป็น Junction Link ใน Environment Variable PATH (เช่น .dotnet\\tools)",
+                 "1. ลบโฟลเดอร์ .dotnet\\tools ออกจากตัวแปร PATH ของ Windows ใน Environment Variables\n2. หรือเปิดโปรแกรมที่อัปเดตแล้ว ซึ่งจะตัดโฟลเดอร์นี้ออกให้อัตโนมัติ",
+                 ErrorSeverity.Error)),
+
             // Catch-all ERROR:
             (new Regex(@"ERROR:\s*(.+)", RegexOptions.IgnoreCase),
              m => new ParsedError(

@@ -56,6 +56,7 @@ cat >"$PACKAGE_ROOT/usr/bin/$APP_ID" <<'LAUNCHER'
 export PATH="/opt/io.github.plub845.VideoDownloaderApp/tools:$PATH"
 exec /opt/io.github.plub845.VideoDownloaderApp/app/VideoDownloaderApp.Linux "$@"
 LAUNCHER
+ln -sf "$APP_ID" "$PACKAGE_ROOT/usr/bin/video-downloader"
 
 cat >"$PACKAGE_ROOT/usr/share/applications/$APP_ID.desktop" <<DESKTOP
 [Desktop Entry]

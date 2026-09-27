@@ -60,7 +60,8 @@ wget -O install.sh "https://github.com/plub845/VideoDownloaderApp/releases/lates
 | :--- | :--- |
 | ดาวน์โหลดไฟล์ `install.ps1` จาก Release ล่าสุด | [ดาวน์โหลด install.ps1](https://github.com/plub845/VideoDownloaderApp/releases/latest/download/install.ps1) |
 | ดาวน์โหลดไฟล์ `install.sh` จาก Release ล่าสุด | [ดาวน์โหลด install.sh](https://github.com/plub845/VideoDownloaderApp/releases/latest/download/install.sh) |
-| ตัวติดตั้งแบบ EXE (Manual Download) | [หน้า Releases ทั้งหมด](https://github.com/plub845/VideoDownloaderApp/releases) |
+| ตัวติดตั้งแบบ EXE (Windows) | [หน้า Releases ทั้งหมด](https://github.com/plub845/VideoDownloaderApp/releases) |
+| แพ็กเกจติดตั้งแบบ .deb (Linux) | [หน้า Releases ทั้งหมด](https://github.com/plub845/VideoDownloaderApp/releases) |
 
 ---
 

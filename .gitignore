@@ -2,9 +2,7 @@
 # .gitignore - VideoDownloaderApp
 # ==============================================================================
 
-installer/
-[Ii]nstaller/
-
+# Build & Compilation Outputs
 [Bb]in/
 [Oo]bj/
 VideoDownloaderApp/bin/
@@ -12,6 +10,40 @@ VideoDownloaderApp/obj/
 VideoDownloaderApp.Linux/bin/
 VideoDownloaderApp.Linux/obj/
 
+# Publish Directories (Never commit built binaries)
+[Pp]ublish/
+publish/
+VideoDownloaderApp/publish/
+VideoDownloaderApp.Linux/publish/
+
+# Compiled Executables, Libraries & Archives (SignPath Foundation Compliance)
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.deb
+*.rpm
+*.AppImage
+*.snap
+*.msi
+*.zip
+*.tar.gz
+
+# Pre-bundled binaries in VideoDownloaderApp/main
+VideoDownloaderApp/main/*.exe
+VideoDownloaderApp/main/*.dll
+VideoDownloaderApp/main/*.pdb
+VideoDownloaderApp/main/*.deps.json
+VideoDownloaderApp/main/*.runtimeconfig.json
+
+# Installer build outputs (keep scripts like .iss, .sh, .ps1, and bitmaps)
+installer/*.exe
+installer/*.msi
+installer/*.deb
+installer/*.zip
+
+# IDE & OS Files
 .vs/
 *.user
 *.suo
@@ -19,11 +51,14 @@ VideoDownloaderApp.Linux/obj/
 *.sln.docstates
 .idea/
 .vscode/
+Thumbs.db
+.DS_Store
 
+# Linux Packaging Temporary Artifacts
 VideoDownloaderApp.Linux/.craft/
 VideoDownloaderApp.Linux/parts/
 VideoDownloaderApp.Linux/prime/
 VideoDownloaderApp.Linux/stage/
-VideoDownloaderApp.Linux/*.snap
 VideoDownloaderApp.Linux/packaging/root/
 VideoDownloaderApp.Linux/packaging/dist/
+VideoDownloaderApp.Linux/packaging/publish/
