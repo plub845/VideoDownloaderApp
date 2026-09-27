@@ -8,11 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  # ==============================================================================
-  # Job 1: Build Windows Application (VideoDownloaderApp)
-  # ==============================================================================
   build-windows:
-    name: Build Windows App
+    name: Build Windows App & Installer
     runs-on: windows-latest
 
     steps:
@@ -29,7 +26,7 @@ jobs:
     - name: Restore Dependencies
       run: dotnet restore VideoDownloaderApp/VideoDownloaderApp.csproj
 
-    - name: Build & Publish Windows App (Release x64)
+    - name: Build & Publish Windows App
       run: >
         dotnet publish VideoDownloaderApp/VideoDownloaderApp.csproj
         -c Release
@@ -37,7 +34,6 @@ jobs:
         --self-contained false
         -o ./output/windows
 
-    # Sign with SignPath Foundation
     - name: Submit to SignPath for Code Signing
       env:
         SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
@@ -53,17 +49,19 @@ jobs:
         output-artifact-directory: './signed'
         input-files-path: './output/windows'
 
-    # ถ้าเซ็นสำเร็จจะอัปโหลดโฟลเดอร์ ./signed ถ้ายังไม่ได้ตั้งค่า Secret จะ fallback ใช้ ./output/windows
-    - name: Upload Windows Build Artifact
+    - name: Package Single-File Installer
+      shell: pwsh
+      run: |
+        $sourceDir = if (Test-Path "./signed") { "./signed" } else { "./output/windows" }
+        New-Item -ItemType Directory -Force -Path "./installer_output"
+        7z a -sfx7z.sfx "./installer_output/VideoDownloaderApp_Setup_v1.1.0.exe" "$sourceDir/*"
+
+    - name: Upload Windows Installer Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: VideoDownloaderApp-Windows-x64
-        path: |
-          ${{ hashFiles('./signed/**') != '' && './signed' || './output/windows' }}
+        name: VideoDownloaderApp-Windows-Installer
+        path: installer_output/VideoDownloaderApp_Setup_v1.1.0.exe
 
-  # ==============================================================================
-  # Job 2: Build Linux Application & Debian Package (.deb)
-  # ==============================================================================
   build-linux:
     name: Build Linux App & .deb Package
     runs-on: ubuntu-latest
@@ -107,14 +105,11 @@ jobs:
         mkdir -p "$PKG_DIR/usr/share/applications"
         mkdir -p "$PKG_DIR/usr/share/icons/hicolor/256x256/apps"
 
-        # Copy compiled files
         cp -r ./publish/linux/* "$PKG_DIR/opt/$APP_ID/app/"
         chmod +x "$PKG_DIR/opt/$APP_ID/app/VideoDownloaderApp.Linux"
 
-        # Copy icon
         ffmpeg -y -i VideoDownloaderApp.Linux/Assets/VDapp.icon.ico -frames:v 1 "$PKG_DIR/usr/share/icons/hicolor/256x256/apps/$APP_ID.png"
 
-        # Create launchers
         cat << 'EOF' > "$PKG_DIR/usr/bin/$APP_ID"
         #!/usr/bin/env bash
         export PATH="/opt/io.github.plub845.VideoDownloaderApp/tools:$PATH"
@@ -123,7 +118,6 @@ jobs:
         chmod 755 "$PKG_DIR/usr/bin/$APP_ID"
         ln -sf "$APP_ID" "$PKG_DIR/usr/bin/video-downloader"
 
-        # Create yt-dlp wrapper
         cat << 'EOF' > "$PKG_DIR/opt/$APP_ID/tools/yt-dlp"
         #!/usr/bin/env bash
         export PYTHONPATH="/opt/io.github.plub845.VideoDownloaderApp/tools${PYTHONPATH:+:$PYTHONPATH}"
@@ -137,7 +131,6 @@ jobs:
         EOF
         chmod 755 "$PKG_DIR/opt/$APP_ID/tools/yt-dlp"
 
-        # Desktop entry
         cat << EOF > "$PKG_DIR/usr/share/applications/$APP_ID.desktop"
         [Desktop Entry]
         Type=Application
@@ -153,7 +146,6 @@ jobs:
         StartupNotify=true
         EOF
 
-        # Control file
         cat << EOF > "$PKG_DIR/DEBIAN/control"
         Package: video-downloader-pro
         Version: $VERSION
@@ -166,11 +158,10 @@ jobs:
         Description: Graphical video and audio downloader powered by yt-dlp and FFmpeg.
         EOF
 
-        # Build deb
         dpkg-deb --build --root-owner-group "$PKG_DIR" "video-downloader-pro_${VERSION}_${ARCH}.deb"
 
     - name: Upload Linux .deb Artifact
       uses: actions/upload-artifact@v4
       with:
         name: VideoDownloaderApp-Linux-deb
-        path: "*.deb"
+        path: video-downloader-pro_1.1.0_amd64.deb
