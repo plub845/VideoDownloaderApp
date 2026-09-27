@@ -54,7 +54,8 @@ jobs:
       run: |
         $sourceDir = if (Test-Path "./signed") { "./signed" } else { "./output/windows" }
         New-Item -ItemType Directory -Force -Path "./installer_output"
-        7z a -sfx7z.sfx "./installer_output/VideoDownloaderApp_Setup_v1.1.0.exe" "$sourceDir/*"
+        $sfxPath = "$env:ProgramFiles\7-Zip\7z.sfx"
+        & "$env:ProgramFiles\7-Zip\7z.exe" a -sfx"$sfxPath" "./installer_output/VideoDownloaderApp_Setup_v1.1.0.exe" "$sourceDir\*"
 
     - name: Upload Windows Installer Artifact
       uses: actions/upload-artifact@v4
