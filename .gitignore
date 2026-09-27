@@ -30,18 +30,12 @@ VideoDownloaderApp.Linux/publish/
 *.zip
 *.tar.gz
 
-# Pre-bundled binaries in VideoDownloaderApp/main
-VideoDownloaderApp/main/*.exe
-VideoDownloaderApp/main/*.dll
-VideoDownloaderApp/main/*.pdb
-VideoDownloaderApp/main/*.deps.json
-VideoDownloaderApp/main/*.runtimeconfig.json
+# Pre-bundled binaries and directory in VideoDownloaderApp/main
+VideoDownloaderApp/main/
 
-# Installer build outputs (keep scripts like .iss, .sh, .ps1, and bitmaps)
-installer/*.exe
-installer/*.msi
-installer/*.deb
-installer/*.zip
+# Installer directory
+installer/
+[Ii]nstaller/
 
 # IDE & OS Files
 .vs/
@@ -59,9 +53,7 @@ VideoDownloaderApp.Linux/.craft/
 VideoDownloaderApp.Linux/parts/
 VideoDownloaderApp.Linux/prime/
 VideoDownloaderApp.Linux/stage/
-VideoDownloaderApp.Linux/packaging/root/
-VideoDownloaderApp.Linux/packaging/dist/
-VideoDownloaderApp.Linux/packaging/publish/
+VideoDownloaderApp.Linux/packaging/
 
 # Winget manifests
 manifests/
